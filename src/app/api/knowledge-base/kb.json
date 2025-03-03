@@ -87,43 +87,25 @@
                         "type": "container",
                         "content": [
                             {
-                                "id": "02c57a43-6e44-4c5f-9f21-56da019e5d8c",
-                                "content": [
-                                    {
-                                        "id": "ea3745f9-9a5e-40f4-85ad-b9e9bb98a775",
-                                        "content": {
-                                            "innerText": "Sign Up"
-                                        },
-                                        "name": "Text",
-                                        "styles": {
-                                            "backgroundPosition": "center",
-                                            "backgroundRepeat": "no-repeat",
-                                            "color": "black",
-                                            "display": "flex",
-                                            "fontSize": "20px",
-                                            "objectFit": "cover",
-                                            "opacity": "100%",
-                                            "textAlign": "center",
-                                            "width": "150px",
-                                            "borderWidth": "2px",
-                                            "borderRadius": "0px",
-                                            "marginTop": "50px",
-                                            "marginRight": "50px"
-                                        },
-                                        "type": "text"
-                                    }
-                                ],
-                                "name": "Container",
+                                "id": "ea3745f9-9a5e-40f4-85ad-b9e9bb98a775",
+                                "content": {
+                                    "innerText": "Sign Up"
+                                },
+                                "name": "Text",
                                 "styles": {
                                     "backgroundPosition": "center",
-                                    "objectFit": "cover",
                                     "backgroundRepeat": "no-repeat",
-                                    "textAlign": "center",
+                                    "color": "black",
                                     "display": "flex",
-                                    "justifyContent": "flex-end",
-                                    "opacity": "100%"
+                                    "fontSize": "20px",
+                                    "objectFit": "cover",
+                                    "opacity": "100%",
+                                    "textAlign": "center",
+                                    "width": "150px",
+                                    "borderWidth": "2px",
+                                    "borderRadius": "0px"
                                 },
-                                "type": "container"
+                                "type": "text"
                             }
                         ]
                     }
