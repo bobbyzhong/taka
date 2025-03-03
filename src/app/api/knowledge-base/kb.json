@@ -1,0 +1,134 @@
+{
+    "records": [
+        {
+            "id": "1",
+            "componentDescription": "Call To Action section also known as CTA. This is a section that contains a button and a text.",
+            "element": {
+                "id": "571b8546-45e7-44f2-9e91-f2e2abdd1ebe",
+                "name": "Container",
+                "type": "container",
+                "styles": {
+                    "display": "flex",
+                    "backgroundPosition": "center",
+                    "objectFit": "cover",
+                    "backgroundRepeat": "no-repeat",
+                    "textAlign": "center",
+                    "alignItems": "center",
+                    "borderRadius": "0px",
+                    "borderWidth": "2px",
+                    "marginTop": "50px",
+                    "marginRight": "50px",
+                    "marginBottom": "100px"
+                },
+                "content": [
+                    {
+                        "id": "c0b2102b-4ea1-4c81-8af8-824fe458d790",
+                        "name": "Container",
+                        "styles": {
+                            "backgroundPosition": "center",
+                            "backgroundRepeat": "no-repeat",
+                            "display": "flex",
+                            "flexDirection": "column",
+                            "objectFit": "cover",
+                            "opacity": "100%",
+                            "textAlign": "center"
+                        },
+                        "type": "container",
+                        "content": [
+                            {
+                                "id": "da3f3698-9a7d-462e-9d80-767f4dc3b230",
+                                "content": {
+                                    "innerText": "Get Started Today!"
+                                },
+                                "name": "Text",
+                                "styles": {
+                                    "backgroundPosition": "center",
+                                    "backgroundRepeat": "no-repeat",
+                                    "color": "black",
+                                    "display": "flex",
+                                    "fontSize": "20px",
+                                    "objectFit": "cover",
+                                    "opacity": "100%",
+                                    "textAlign": "left"
+                                },
+                                "type": "text"
+                            },
+                            {
+                                "id": "470cc4f9-e358-4cc0-a9c5-dfb482b3339c",
+                                "content": {
+                                    "innerText": "We'd love to have you on our team"
+                                },
+                                "name": "Text",
+                                "styles": {
+                                    "backgroundPosition": "center",
+                                    "backgroundRepeat": "no-repeat",
+                                    "color": "black",
+                                    "display": "flex",
+                                    "fontSize": "13px",
+                                    "objectFit": "cover",
+                                    "opacity": "100%",
+                                    "textAlign": "left"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "02c57a43-6e44-4c5f-9f21-56da019e5d8c",
+                        "name": "Container",
+                        "styles": {
+                            "display": "flex",
+                            "backgroundPosition": "center",
+                            "objectFit": "cover",
+                            "backgroundRepeat": "no-repeat",
+                            "textAlign": "center",
+                            "justifyContent": "flex-end",
+                            "opacity": "100%"
+                        },
+                        "type": "container",
+                        "content": [
+                            {
+                                "id": "02c57a43-6e44-4c5f-9f21-56da019e5d8c",
+                                "content": [
+                                    {
+                                        "id": "ea3745f9-9a5e-40f4-85ad-b9e9bb98a775",
+                                        "content": {
+                                            "innerText": "Sign Up"
+                                        },
+                                        "name": "Text",
+                                        "styles": {
+                                            "backgroundPosition": "center",
+                                            "backgroundRepeat": "no-repeat",
+                                            "color": "black",
+                                            "display": "flex",
+                                            "fontSize": "20px",
+                                            "objectFit": "cover",
+                                            "opacity": "100%",
+                                            "textAlign": "center",
+                                            "width": "150px",
+                                            "borderWidth": "2px",
+                                            "borderRadius": "0px",
+                                            "marginTop": "50px",
+                                            "marginRight": "50px"
+                                        },
+                                        "type": "text"
+                                    }
+                                ],
+                                "name": "Container",
+                                "styles": {
+                                    "backgroundPosition": "center",
+                                    "objectFit": "cover",
+                                    "backgroundRepeat": "no-repeat",
+                                    "textAlign": "center",
+                                    "display": "flex",
+                                    "justifyContent": "flex-end",
+                                    "opacity": "100%"
+                                },
+                                "type": "container"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
