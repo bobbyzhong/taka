@@ -72,6 +72,7 @@ function PageEditorNavigation({}: Props) {
         try {
             dispatch({ type: "SET_LOADING", payload: { loading: true } });
             setAiEditModalOpen(false);
+
             const response = await fetch("/api/component", {
                 method: "POST",
                 headers: {
@@ -84,20 +85,43 @@ function PageEditorNavigation({}: Props) {
                 }),
             });
 
-            const data = await response.json();
-            console.log("Data", data);
-            dispatch({
-                type: "UPDATE_ROOT",
-                payload: {
-                    elementDetails: data.updatedElements,
-                },
-            });
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
 
-            setAiPrompt("");
+            const reader = response.body?.getReader();
+            const decoder = new TextDecoder();
 
-            toast.success("Content updated");
-        } catch (e) {
-            console.error("Error", e);
+            while (true && reader) {
+                const { value, done } = await reader.read();
+                if (done) break;
+
+                const chunk = decoder.decode(value);
+                const lines = chunk.split("\n");
+
+                for (const line of lines) {
+                    if (line.startsWith("data: ")) {
+                        const data = JSON.parse(line.slice(5));
+
+                        if (data.status === "complete") {
+                            dispatch({
+                                type: "UPDATE_ROOT",
+                                payload: {
+                                    elementDetails: data.updatedElements,
+                                },
+                            });
+                            setAiPrompt("");
+                            toast.success("Content updated");
+                            return;
+                        } else if (data.status === "error") {
+                            throw new Error(data.error);
+                        }
+                        // Ignore 'processing' status
+                    }
+                }
+            }
+        } catch (error) {
+            console.error("Error", error);
             toast.error("Error", {
                 description: "Error generating content",
             });

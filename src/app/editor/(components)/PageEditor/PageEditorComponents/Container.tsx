@@ -127,10 +127,8 @@ function Container({ element }: Props) {
         });
     };
 
-    const handleAiSubmit = async () => {
+    const handleComponentUpdate = async () => {
         try {
-            setIsGenerating(true);
-            dispatch({ type: "SET_LOADING", payload: { loading: true } });
             const response = await fetch("/api/component", {
                 method: "POST",
                 headers: {
@@ -143,12 +141,49 @@ function Container({ element }: Props) {
                 }),
             });
 
-            const data = await response.json();
-            console.log("Data", data);
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+
+            const reader = response.body?.getReader();
+            const decoder = new TextDecoder();
+
+            while (true && reader) {
+                const { value, done } = await reader.read();
+                if (done) break;
+
+                const chunk = decoder.decode(value);
+                const lines = chunk.split("\n");
+
+                for (const line of lines) {
+                    if (line.startsWith("data: ")) {
+                        const data = JSON.parse(line.slice(5));
+
+                        if (data.status === "complete") {
+                            // Update your UI with data.updatedElements
+                            return data.updatedElements;
+                        } else if (data.status === "error") {
+                            throw new Error(data.error);
+                        }
+                        // Ignore 'processing' status as we don't need to do anything
+                    }
+                }
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            // Handle error in UI
+        }
+    };
+
+    const handleAiSubmit = async () => {
+        try {
+            setIsGenerating(true);
+            dispatch({ type: "SET_LOADING", payload: { loading: true } });
+            const updatedElements = await handleComponentUpdate();
             dispatch({
                 type: "UPDATE_ROOT",
                 payload: {
-                    elementDetails: data.updatedElements,
+                    elementDetails: updatedElements,
                 },
             });
 
