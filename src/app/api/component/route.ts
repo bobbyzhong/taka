@@ -2,6 +2,9 @@ import path from "path";
 import fs from "fs";
 import { EditorElement } from "@/app/editor/provider/EditorProvider";
 import { OpenAI } from "openai";
+import kbData from "../knowledge-base/kb.json";
+
+export const runtime = "edge";
 
 /*
 Potential Queries
@@ -39,22 +42,18 @@ export type EditorElement = {
 };
 */
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
-
 const searchKb = (query: string) => {
     // open the json file in knowledgebase
     console.log("Query: ", query);
     try {
-        const kbPath = path.join(
-            process.cwd(),
-            "src/app/api/knowledge-base",
-            "kb.json"
-        );
-        const kbContent = fs.readFileSync(kbPath, "utf-8");
-        const kb = JSON.parse(kbContent);
-        return kb;
+        // const kbPath = path.join(
+        //     process.cwd(),
+        //     "src/app/api/knowledge-base",
+        //     "kb.json"
+        // );
+        // const kbContent = fs.readFileSync(kbPath, "utf-8");
+        // const kb = JSON.parse(kbContent);
+        return kbData;
     } catch (e) {
         console.error("Error: ", e);
     }
@@ -84,6 +83,11 @@ const tools = [
 
 export async function POST(req: Request) {
     try {
+        const openai = new OpenAI({
+            apiKey: process.env.OPENAI_API_KEY,
+            fetch: fetch,
+        });
+
         const body = await req.json();
         console.log("BODY", body);
 
