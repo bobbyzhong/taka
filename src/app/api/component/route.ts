@@ -1,5 +1,3 @@
-import path from "path";
-import fs from "fs";
 import { EditorElement } from "@/app/editor/provider/EditorProvider";
 import { OpenAI } from "openai";
 import kbData from "../knowledge-base/kb.json";
