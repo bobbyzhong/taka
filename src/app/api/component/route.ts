@@ -81,7 +81,7 @@ const tools = [
 
 export async function POST(req: Request) {
     try {
-        // Clone the request since we can only read it once
+        // can only be read once because it's like a stream
         const clonedReq = req.clone();
 
         const stream = new TransformStream();
